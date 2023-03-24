@@ -19,6 +19,7 @@ namespace _24._03._2023
             }
 
             public abstract void Add(Component component);
+            public abstract void Rem(Component component);
             public abstract void Show();
 
         }
@@ -35,7 +36,11 @@ namespace _24._03._2023
             {
                 list.Add(component);
             }
+            public override void Rem(Component component)
+            {
 
+                list.Remove(component);
+            }
             public override void Show()
             {
                 Console.WriteLine($"Name_Product: {Name_product}\nCount_Product: {Count_Product}\nPrice_Product: {Price_Product}\n");
@@ -47,7 +52,10 @@ namespace _24._03._2023
             {
 
             }
-
+            public override void Rem(Component component)
+            {
+                throw new NotImplementedException();
+            }
             public override void Show()
             {
                 Console.WriteLine($"Name_Product{Name_product}\nCount_Product{Count_Product}\nPrice_Product{Price_Product}\n");
@@ -64,6 +72,7 @@ namespace _24._03._2023
             Component component = new Box("MaC",2,1300);
             Component leaf = new Leaf("MaC", 2, 1300);
             component.Add(leaf);
+            component.Rem(leaf);
             component.Show();
         }
     }
